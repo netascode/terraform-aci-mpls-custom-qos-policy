@@ -1,5 +1,5 @@
 terraform {
-  required_version = ">= 1.0.0"
+  required_version = ">= 1.3.0"
 
   required_providers {
     test = {
@@ -16,33 +16,33 @@ terraform {
 module "main" {
   source = "../.."
 
-  name = "ABC"
+  name = "MPLS_QOS_POL"
 }
 
-data "aci_rest_managed" "fvTenant" {
-  dn = "uni/tn-ABC"
+data "aci_rest_managed" "qosMplsCustomPol" {
+  dn = "uni/tn-infra/qosmplscustom-MPLS_QOS_POL"
 
   depends_on = [module.main]
 }
 
-resource "test_assertions" "fvTenant" {
-  component = "fvTenant"
+resource "test_assertions" "qosMplsCustomPol" {
+  component = "qosMplsCustomPol"
 
   equal "name" {
     description = "name"
-    got         = data.aci_rest_managed.fvTenant.content.name
-    want        = "ABC"
+    got         = data.aci_rest_managed.qosMplsCustomPol.content.name
+    want        = "MPLS_QOS_POL"
   }
 
   equal "nameAlias" {
     description = "nameAlias"
-    got         = data.aci_rest_managed.fvTenant.content.nameAlias
+    got         = data.aci_rest_managed.qosMplsCustomPol.content.nameAlias
     want        = ""
   }
 
   equal "descr" {
     description = "descr"
-    got         = data.aci_rest_managed.fvTenant.content.descr
+    got         = data.aci_rest_managed.qosMplsCustomPol.content.descr
     want        = ""
   }
 }

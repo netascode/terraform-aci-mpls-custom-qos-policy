@@ -3,14 +3,14 @@ version: '>= 0.14.0'
 formatter: markdown table
 
 content: |-
-  [![Tests](https://github.com/netascode/terraform-aci-scaffolding/actions/workflows/test.yml/badge.svg)](https://github.com/netascode/terraform-aci-scaffolding/actions/workflows/test.yml)
+  [![Tests](https://github.com/netascode/terraform-aci-mpls-custom-qos-policy/actions/workflows/test.yml/badge.svg)](https://github.com/netascode/terraform-aci-mpls-custom-qos-policy/actions/workflows/test.yml)
 
-  # Terraform ACI Scaffolding Module
+  # Terraform ACI MPLS Custom QoS Module
 
   Description
 
   Location in GUI:
-  `Tenants` » `XXX`
+  `Tenants` » `infra` >> Policies` » `Protocol` » `MPLS Custom QoS Policy`
 
   ## Examples
 
